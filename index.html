@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Content Security Policy: Protects against XSS and locks down assets to self, google fonts, and unsplash -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com; script-src 'self'; connect-src 'self';">
-    
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com; script-src 'self'; connect-src 'self';">
+
     <title>Jaron & Aiswarya — The Wedding Celebration</title>
-    <meta name="description" content="You are cordially invited to the wedding celebration of Jaron and Aiswarya at Le Grande, Thrissur. Explore details and countdown.">
-    
+    <meta name="description"
+        content="You are cordially invited to the wedding celebration of Jaron and Aiswarya at Le Grande, Thrissur. Explore details and countdown.">
+
     <!-- Open Graph for elegant social sharing previews -->
     <meta property="og:title" content="Jaron & Aiswarya — Wedding Invitation">
     <meta property="og:description" content="Join us at Le Grande, Thrissur.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop">
     <meta property="og:type" content="website">
 
     <!-- Fonts: Cormorant Garamond for luxury serif, Inter for modern clean sans-serif -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <!-- Main Elegant Container -->
     <div id="app-container" class="fade-in">
-        
+
         <!-- Header / Logo section -->
         <header id="main-header">
             <p class="brand-monogram">J & A</p>
@@ -34,7 +41,7 @@
         </header>
 
         <main id="invitation-layout">
-            
+
             <!-- Left Side: Editorial Typography & Copy -->
             <section id="invitation-text-section" class="content-block">
                 <h1 id="couple-names">
@@ -42,9 +49,10 @@
                     <span class="ampersand">&</span>
                     <span class="name-line">Aiswarya</span>
                 </h1>
-                
+
                 <p id="invitation-statement" class="invitation-sub">
-                    Together with their families, they invite you to celebrate their union under the warmth of friendship and love.
+                    Together with their families, they invite you to celebrate their union under the warmth of
+                    friendship and love.
                 </p>
 
                 <!-- Detailed Event Cards -->
@@ -63,10 +71,11 @@
                 </div>
 
                 <!-- Google Maps Link Button -->
-                <a id="btn-google-maps" class="btn-primary" href="https://maps.app.goo.gl/ijx9kTpFXJjWxr4C9" target="_blank" rel="noopener noreferrer">
+                <a id="btn-google-maps" class="btn-primary" href="https://maps.app.goo.gl/ijx9kTpFXJjWxr4C9"
+                    target="_blank" rel="noopener noreferrer">
                     <span>EXPLORE VENUE MAP</span>
                     <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </a>
             </section>
@@ -75,7 +84,7 @@
             <section id="invitation-image-section">
                 <div id="portrait-frame">
                     <!-- Premium high-resolution sample image of a stylish, modern wedding couple -->
-                    <img id="couple-portrait-img" src="img2.jpeg" alt="Jaron & Aiswarya" loading="eager">
+                    <img id="couple-portrait-img" src="img3.png" alt="Jaron & Aiswarya" loading="eager">
                     <div id="portrait-overlay"></div>
                 </div>
             </section>
@@ -114,4 +123,5 @@
     <!-- Secure countdown logic script -->
     <script src="script.js?v=1.1"></script>
 </body>
+
 </html>
