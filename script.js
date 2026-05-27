@@ -4,8 +4,8 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Set target wedding date: August 30, 2026 at 4:00 PM (16:00)
-    const targetDateString = 'August 30, 2026 16:00:00';
+    // Set target wedding date: August 30, 2026 at 9:00 AM (09:00)
+    const targetDateString = 'August 30, 2026 09:00:00';
     const targetDate = new Date(targetDateString).getTime();
 
     // Cache DOM element selectors
