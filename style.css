@@ -335,17 +335,13 @@ body {
 
 #couple-portrait-img {
     width: 100%;
-    height: 100%;
+    height: 120%; /* Expanded height to enable smooth vertical scroll parallax space */
     object-fit: cover;
-    object-position: center 25%;
-    opacity: 0.88;
-    transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
-    filter: sepia(10%) contrast(102%);
-}
-
-#portrait-frame:hover #couple-portrait-img {
-    transform: scale(1.05);
-    opacity: 1;
+    object-position: center 20%;
+    opacity: 0.8; /* Warm elegant editorial opacity */
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1); /* Lag-free scrolling without transform transition interference */
+    filter: sepia(6%) contrast(101%);
+    will-change: transform; /* Hardware acceleration for buttery smooth scrolling */
 }
 
 #portrait-overlay {

@@ -57,4 +57,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Set interval to update every 1 second (1000ms)
     const countdownInterval = setInterval(updateCountdown, 1000);
+
+    // Buttery Smooth Parallax Scrolling for the Couple Image
+    const portraitImg = document.getElementById('couple-portrait-img');
+    const portraitFrame = document.getElementById('portrait-frame');
+    
+    if (portraitImg && portraitFrame) {
+        function applyParallax() {
+            const rect = portraitFrame.getBoundingClientRect();
+            const viewHeight = window.innerHeight;
+            
+            // Only perform calculation if the image block is in viewport
+            if (rect.top < viewHeight && rect.bottom > 0) {
+                // Calculate distance from screen center
+                const relativeScroll = (rect.top + rect.height / 2) - (viewHeight / 2);
+                
+                // Fine-tuned parallax vertical displacement (moves at an elegant fraction of scroll speed)
+                const translateY = relativeScroll * -0.06;
+                
+                // Set scale slightly larger to completely cover borders and apply the shift
+                portraitImg.style.transform = `scale(1.15) translateY(${translateY}px)`;
+            }
+        }
+
+        // Apply immediately on load
+        applyParallax();
+        
+        // Listen to scroll events (using standard requestAnimationFrame for flawless performance)
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    applyParallax();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    }
 });
