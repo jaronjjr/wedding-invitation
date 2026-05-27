@@ -1,11 +1,11 @@
 /**
- * Secure real-time countdown logic for Julian & Seraphina's Wedding Brochure
+ * Secure real-time countdown logic for Jaron & Aiswarya's Wedding Brochure
  * Adheres strictly to Secure Frontend Coding standards: no innerHTML or unsafe sinks are used.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Set target wedding date: September 12, 2026 at 4:00 PM (16:00) Italian Time
-    const targetDateString = 'September 12, 2026 16:00:00';
+    // Set target wedding date: August 30, 2026 at 4:00 PM (16:00)
+    const targetDateString = 'August 30, 2026 16:00:00';
     const targetDate = new Date(targetDateString).getTime();
 
     // Cache DOM element selectors
