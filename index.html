@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Content Security Policy: Protects against XSS and locks down assets to self, google fonts, and unsplash -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com; script-src 'self'; connect-src 'self';">
+    
+    <title>Julian & Seraphina — The Wedding Celebration</title>
+    <meta name="description" content="You are cordially invited to the wedding celebration of Julian and Seraphina at the historic Villa d'Este on Lake Como, Italy. Explore details and countdown.">
+    
+    <!-- Open Graph for elegant social sharing previews -->
+    <meta property="og:title" content="Julian & Seraphina — Wedding Invitation">
+    <meta property="og:description" content="Join us at Villa d'Este, Lake Como, Italy.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts: Cormorant Garamond for luxury serif, Inter for modern clean sans-serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Main Elegant Container -->
+    <div id="app-container" class="fade-in">
+        
+        <!-- Header / Logo section -->
+        <header id="main-header">
+            <p class="brand-monogram">J & S</p>
+            <span class="divider-line"></span>
+        </header>
+
+        <main id="invitation-layout">
+            
+            <!-- Left Side: Editorial Typography & Copy -->
+            <section id="invitation-text-section" class="content-block">
+                <h1 id="couple-names">
+                    <span class="name-line">Julian</span>
+                    <span class="ampersand">&</span>
+                    <span class="name-line">Seraphina</span>
+                </h1>
+                
+                <p id="invitation-statement" class="invitation-sub">
+                    Together with their families, they invite you to celebrate their union under the warmth of the Italian sun.
+                </p>
+
+                <!-- Detailed Event Cards -->
+                <div id="details-container">
+                    <div class="detail-card" id="card-date">
+                        <h3 class="card-title">WHEN</h3>
+                        <p class="card-value main-value">September 12, 2026</p>
+                        <p class="card-value sub-value">Four o'clock in the afternoon</p>
+                    </div>
+
+                    <div class="detail-card" id="card-venue">
+                        <h3 class="card-title">WHERE</h3>
+                        <p class="card-value main-value">Villa d'Este</p>
+                        <p class="card-value sub-value">Lake Como, Italy</p>
+                    </div>
+                </div>
+
+                <!-- Google Maps Link Button -->
+                <a id="btn-google-maps" class="btn-primary" href="https://maps.app.goo.gl/9Zc1N9rE5eM9v8D18" target="_blank" rel="noopener noreferrer">
+                    <span>EXPLORE VENUE MAP</span>
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+
+                <!-- Countdown Section -->
+                <section id="countdown-section">
+                    <h2 id="countdown-heading" class="section-subtitle">THE COUNTDOWN</h2>
+                    <div id="timer-grid">
+                        <div class="timer-box">
+                            <span class="timer-number" id="days-val">—</span>
+                            <span class="timer-label">DAYS</span>
+                        </div>
+                        <div class="timer-box">
+                            <span class="timer-number" id="hours-val">—</span>
+                            <span class="timer-label">HOURS</span>
+                        </div>
+                        <div class="timer-box">
+                            <span class="timer-number" id="minutes-val">—</span>
+                            <span class="timer-label">MINS</span>
+                        </div>
+                        <div class="timer-box">
+                            <span class="timer-number" id="seconds-val">—</span>
+                            <span class="timer-label">SECS</span>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Right Side: Editorial Couple Portrait Image -->
+            <section id="invitation-image-section">
+                <div id="portrait-frame">
+                    <!-- Premium high-resolution sample image of a stylish, modern wedding couple -->
+                    <img id="couple-portrait-img" src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop" alt="Julian & Seraphina" loading="eager">
+                    <div id="portrait-overlay"></div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer id="main-footer">
+            <p class="footer-note">RSVP details to follow • Please celebrate with us in spirit and presence</p>
+        </footer>
+
+    </div>
+
+    <!-- Secure countdown logic script -->
+    <script src="script.js"></script>
+</body>
+</html>
