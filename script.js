@@ -62,6 +62,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const portraitImg = document.getElementById('couple-portrait-img');
     const portraitFrame = document.getElementById('portrait-frame');
     
+    // Intersection Observer for Scroll-triggered Entry Reveal
+    if (portraitFrame) {
+        if ('IntersectionObserver' in window) {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target); // Reveal once
+                    }
+                });
+            }, {
+                threshold: 0.05 // Triggers when 5% of the frame is visible
+            });
+            
+            revealObserver.observe(portraitFrame);
+        } else {
+            // Fallback for older browsers/webviews without IntersectionObserver support
+            portraitFrame.classList.add('revealed');
+        }
+    }
+    
     if (portraitImg && portraitFrame) {
         function applyParallax() {
             const rect = portraitFrame.getBoundingClientRect();
@@ -84,6 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         applyParallax();
         
         // Listen to scroll events (using standard requestAnimationFrame for flawless performance)
+        // Use capturing listener so it intercepts scroll events from sub-scrollable containers on mobile
         let ticking = false;
         window.addEventListener('scroll', () => {
             if (!ticking) {
@@ -93,6 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 ticking = true;
             }
-        });
+        }, { capture: true, passive: true });
     }
 });

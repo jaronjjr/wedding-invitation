@@ -26,6 +26,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Disable text selection on interactive elements for a more native app feel */
+#btn-google-maps,
+.timer-box,
+.detail-card {
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 html {
@@ -190,10 +199,19 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
 }
 
-.detail-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 15px 35px rgba(192, 160, 123, 0.08);
+@media (hover: hover) {
+    .detail-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 15px 35px rgba(192, 160, 123, 0.08);
+        border-color: var(--color-gold);
+    }
+}
+
+.detail-card:active {
+    background-color: rgba(192, 160, 123, 0.05);
     border-color: var(--color-gold);
+    transform: scale(0.98);
+    transition: all 0.1s ease;
 }
 
 .card-title {
@@ -239,10 +257,23 @@ body {
     margin-bottom: 3.5rem;
 }
 
-#btn-google-maps:hover {
-    background-color: transparent;
-    color: var(--color-text-primary);
-    border-color: var(--color-text-primary);
+@media (hover: hover) {
+    #btn-google-maps:hover {
+        background-color: transparent;
+        color: var(--color-text-primary);
+        border-color: var(--color-text-primary);
+    }
+    #btn-google-maps:hover .arrow-icon {
+        transform: translateX(6px);
+    }
+}
+
+#btn-google-maps:active {
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-primary);
+    opacity: 0.85;
+    transform: scale(0.98);
+    transition: all 0.1s ease;
 }
 
 .arrow-icon {
@@ -250,10 +281,6 @@ body {
     height: 16px;
     margin-left: 0.8rem;
     transition: var(--transition-smooth);
-}
-
-#btn-google-maps:hover .arrow-icon {
-    transform: translateX(6px);
 }
 
 /* Countdown Timer Section */
@@ -290,10 +317,19 @@ body {
     transition: var(--transition-quick);
 }
 
-.timer-box:hover {
-    background-color: #FFFFFF;
+@media (hover: hover) {
+    .timer-box:hover {
+        background-color: #FFFFFF;
+        border-style: solid;
+        border-color: var(--color-gold);
+    }
+}
+
+.timer-box:active {
+    background-color: rgba(192, 160, 123, 0.1);
     border-style: solid;
     border-color: var(--color-gold);
+    transition: all 0.1s ease;
 }
 
 .timer-number {
@@ -324,13 +360,28 @@ body {
     border: 1px solid var(--color-border);
     padding: 0.8rem;
     background-color: var(--color-bg-card);
-    transition: var(--transition-smooth);
     box-shadow: 0 20px 60px rgba(0,0,0,0.02);
+    
+    /* Scroll-triggered reveal state */
+    opacity: 0;
+    transform: translateY(60px);
+    transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
 }
 
-#portrait-frame:hover {
-    border-color: var(--color-gold);
-    box-shadow: 0 35px 80px rgba(192, 160, 123, 0.12);
+#portrait-frame.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (hover: hover) {
+    #portrait-frame:hover {
+        border-color: var(--color-gold);
+        box-shadow: 0 35px 80px rgba(192, 160, 123, 0.12);
+    }
 }
 
 #couple-portrait-img {
@@ -400,19 +451,37 @@ body {
 
 /* Mobile Screens */
 @media (max-width: 600px) {
+    html, body {
+        height: 100%;
+        overflow: hidden;
+        padding: 0;
+    }
+
     body {
-        padding: 1rem 0.5rem;
+        position: relative;
     }
     
     #app-container {
-        padding: 1.5rem 1.25rem;
+        height: 100%;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: calc(1.5rem + env(safe-area-inset-top)) calc(1.25rem + env(safe-area-inset-right)) calc(1.5rem + env(safe-area-inset-bottom)) calc(1.25rem + env(safe-area-inset-left));
         border: none;
         box-shadow: none;
         background-color: var(--color-bg-primary);
     }
     
     #app-container::before {
-        display: none;
+        content: '';
+        position: fixed;
+        top: calc(0.75rem + env(safe-area-inset-top));
+        left: calc(0.75rem + env(safe-area-inset-left));
+        right: calc(0.75rem + env(safe-area-inset-right));
+        bottom: calc(0.75rem + env(safe-area-inset-bottom));
+        border: 1px solid var(--color-border);
+        pointer-events: none;
+        z-index: 100;
+        display: block;
     }
     
     #main-header {
