@@ -243,25 +243,26 @@ body {
 #btn-google-maps {
     display: inline-flex;
     align-items: center;
-    align-self: flex-start;
+    align-self: center; /* Center globally now that it is below countdown */
     padding: 1.1rem 2.2rem;
-    background-color: var(--color-text-primary);
-    color: var(--color-bg-primary);
+    background-color: var(--color-gold); /* Match wedding gold theme */
+    color: #FFFFFF;
     text-decoration: none;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.2em;
     transition: var(--transition-smooth);
     position: relative;
-    border: 1px solid var(--color-text-primary);
-    margin-bottom: 3.5rem;
+    border: 1px solid var(--color-gold);
+    margin-top: 2rem;
+    margin-bottom: 3rem;
 }
 
 @media (hover: hover) {
     #btn-google-maps:hover {
         background-color: transparent;
-        color: var(--color-text-primary);
-        border-color: var(--color-text-primary);
+        color: var(--color-gold-dark);
+        border-color: var(--color-gold-dark);
     }
     #btn-google-maps:hover .arrow-icon {
         transform: translateX(6px);
@@ -269,9 +270,9 @@ body {
 }
 
 #btn-google-maps:active {
-    background-color: var(--color-text-primary);
-    color: var(--color-bg-primary);
-    opacity: 0.85;
+    background-color: var(--color-gold-dark);
+    color: #FFFFFF;
+    border-color: var(--color-gold-dark);
     transform: scale(0.98);
     transition: all 0.1s ease;
 }
@@ -521,6 +522,7 @@ body {
         align-self: center;
         width: 100%;
         justify-content: center;
+        margin-top: 1.5rem;
         margin-bottom: 2.5rem;
     }
     
