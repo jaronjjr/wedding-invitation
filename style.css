@@ -207,13 +207,6 @@ body {
     }
 }
 
-.detail-card:active {
-    background-color: rgba(192, 160, 123, 0.05);
-    border-color: var(--color-gold);
-    transform: scale(0.98);
-    transition: all 0.1s ease;
-}
-
 .card-title {
     font-family: var(--font-sans);
     font-size: 0.7rem;
