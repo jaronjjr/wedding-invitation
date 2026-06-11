@@ -4,6 +4,27 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Lock scroll and initialize cover active state
+    document.body.classList.add('cover-active');
+
+    // Handle invitation cover opening transition
+    const openBtn = document.getElementById('btn-open-invitation');
+    const invitationCover = document.getElementById('invitation-cover');
+    const revealItems = document.querySelectorAll('.reveal-item');
+
+    if (openBtn && invitationCover) {
+        openBtn.addEventListener('click', () => {
+            invitationCover.classList.add('opened');
+            document.body.classList.remove('cover-active');
+            document.body.classList.add('cover-opened');
+
+            // Trigger staggered fade-in reveal animations
+            revealItems.forEach(item => {
+                item.classList.add('active');
+            });
+        });
+    }
+
     // Set target wedding date: August 30, 2026 at 9:00 AM (09:00)
     const targetDateString = 'August 30, 2026 09:00:00';
     const targetDate = new Date(targetDateString).getTime();
