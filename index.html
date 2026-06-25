@@ -31,38 +31,21 @@
 
 <body>
 
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+    </audio>
+
+
     <!-- Envelope/Cover Overlay -->
     <div id="invitation-cover">
         <div class="cover-frame">
             <div class="cover-content">
-                <div class="crest-container">
-                    <svg class="wreath-svg" viewBox="0 0 200 200" fill="none" stroke="#C0A07B" stroke-width="1.2">
-                        <!-- Circular frame -->
-                        <circle cx="100" cy="100" r="75" stroke-dasharray="2 3" opacity="0.5" />
-                        <circle cx="100" cy="100" r="70" opacity="0.8" />
-                        
-                        <!-- Left Branch -->
-                        <path d="M 100,170 C 60,170 30,140 30,100 C 30,60 60,30 100,30" />
-                        <!-- Left leaves -->
-                        <path d="M 30,100 C 25,95 20,95 25,100 C 20,105 25,105 30,100 Z" fill="#C0A07B" />
-                        <path d="M 34,70 C 28,67 25,70 30,73 C 26,77 30,80 34,78 Z" fill="#C0A07B" />
-                        <path d="M 47,47 C 42,42 38,46 43,50 C 39,53 43,57 47,54 Z" fill="#C0A07B" />
-                        <path d="M 68,34 C 65,28 60,30 63,35 C 59,38 62,42 66,39 Z" fill="#C0A07B" />
-                        
-                        <!-- Right Branch -->
-                        <path d="M 100,170 C 140,170 170,140 170,100 C 170,60 140,30 100,30" />
-                        <!-- Right leaves -->
-                        <path d="M 170,100 C 175,95 180,95 175,100 C 180,105 175,105 170,100 Z" fill="#C0A07B" />
-                        <path d="M 166,70 C 172,67 175,70 170,73 C 174,77 170,80 166,78 Z" fill="#C0A07B" />
-                        <path d="M 153,47 C 158,42 162,46 157,50 C 161,53 157,57 153,54 Z" fill="#C0A07B" />
-                        <path d="M 132,34 C 135,28 140,30 137,35 C 141,38 138,42 134,39 Z" fill="#C0A07B" />
-                    </svg>
-                    <div class="monogram-text">J&amp;A</div>
-                </div>
                 <div class="cover-subtitle">THE WEDDING CELEBRATION</div>
+                <div class="cover-tagline">We're finally making it official!</div>
                 <h2 class="cover-names">Jaron &amp; Aiswarya</h2>
                 <div class="cover-divider"></div>
-                <div class="cover-date">AUGUST 30, 2026 &bull; THRISSUR, KERALA</div>
                 <button id="btn-open-invitation" class="btn-open">
                     <span>OPEN INVITATION</span>
                     <span class="btn-sheen"></span>
@@ -76,7 +59,7 @@
 
         <main id="invitation-layout">
 
-            <!-- Left Side: Editorial Typography & Copy -->
+            <!-- Names & Statement -->
             <section id="invitation-text-section" class="content-block">
                 <h1 id="couple-names" class="reveal-item delay-1">
                     <span class="name-line">Jaron</span>
@@ -88,25 +71,9 @@
                     Together with their families, they invite you to celebrate their union under the warmth of
                     friendship and love.
                 </p>
-
-                <!-- Detailed Event Cards -->
-                <div id="details-container" class="reveal-item delay-3">
-                    <div class="detail-card" id="card-venue">
-                        <h3 class="card-title">At the Beautiful Venue Of</h3>
-                        <p class="card-value main-value">Le Grande</p>
-                        <p class="card-value sub-value">Thrissur, Kerala</p>
-                    </div>
-                    <div class="detail-card" id="card-date">
-                        <h3 class="card-title">On This Auspicious Day</h3>
-                        <p class="card-value main-value">August 30, 2026</p>
-                        <p class="card-value sub-value">Sunday, 8:30 AM</p>
-                    </div>
-                </div>
-
-
             </section>
 
-            <!-- Right Side: Editorial Couple Portrait Image -->
+            <!-- Couple Portrait Image -->
             <section id="invitation-image-section">
                 <div id="portrait-frame">
                     <!-- Premium high-resolution sample image of a stylish, modern wedding couple -->
@@ -116,6 +83,36 @@
             </section>
 
         </main>
+
+        <!-- Detailed Event Cards -->
+        <div id="details-container" class="reveal-item delay-3">
+            <div class="detail-card" id="card-muhurtham">
+                <h3 class="card-title">The Big Day</h3>
+                <p class="card-value main-value">Le Grande</p>
+                <p class="card-value sub-value">Thrissur, Kerala</p>
+                <p class="card-time">August 30, 2026 &bull; Sunday<br>8:30 AM</p>
+                <a class="card-map-btn" href="https://maps.app.goo.gl/ijx9kTpFXJjWxr4C9" target="_blank"
+                    rel="noopener noreferrer">
+                    <span>VIEW MAP</span>
+                    <svg class="mini-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </div>
+            <div class="detail-card" id="card-reception">
+                <h3 class="card-title">Wedding Reception</h3>
+                <p class="card-value main-value">St. Alphonsa Church's Auditorium</p>
+                <p class="card-value sub-value">Thrissur, Kerala</p>
+                <p class="card-time">September 6, 2026 &bull; Sunday<br>11:00 AM - 3:00 PM</p>
+                <a class="card-map-btn" href="https://maps.app.goo.gl/fmHvy9kyaXn8DtKu7" target="_blank"
+                    rel="noopener noreferrer">
+                    <span>VIEW MAP</span>
+                    <svg class="mini-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </div>
+        </div>
 
         <!-- Countdown Section -->
         <section id="countdown-section" class="reveal-item delay-4">
@@ -139,15 +136,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Google Maps Link Button -->
-        <a id="btn-google-maps" class="btn-primary reveal-item delay-5" href="https://maps.app.goo.gl/ijx9kTpFXJjWxr4C9" target="_blank"
-            rel="noopener noreferrer">
-            <span>EXPLORE VENUE MAP</span>
-            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-        </a>
 
         <footer id="main-footer" class="reveal-item delay-6">
             <p class="footer-note">RSVP details to follow • Please celebrate with us in spirit and presence</p>

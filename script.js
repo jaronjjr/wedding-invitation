@@ -22,6 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
             revealItems.forEach(item => {
                 item.classList.add('active');
             });
+
+            // Start background music
+            const bgMusic = document.getElementById('bg-music');
+            if (bgMusic) {
+                bgMusic.play().catch((error) => {
+                    console.log("Audio play prevented or file not loaded yet: ", error);
+                });
+            }
         });
     }
 

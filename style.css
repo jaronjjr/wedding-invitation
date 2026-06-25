@@ -125,12 +125,12 @@ body {
     opacity: 0.6;
 }
 
-/* Split-Screen Main Layout */
+/* Vertical Main Layout */
 #invitation-layout {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 4rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 3rem;
     flex-grow: 1;
     margin: 2rem 0;
 }
@@ -139,8 +139,10 @@ body {
 #invitation-text-section {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding-right: 2rem;
+    align-items: center;
+    text-align: center;
+    padding-right: 0;
+    width: 100%;
 }
 
 /* Luxury Editorial Names */
@@ -153,6 +155,8 @@ body {
     margin-bottom: 1.5rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .name-line {
@@ -180,6 +184,9 @@ body {
     margin-bottom: 3rem;
     max-width: 520px;
     line-height: 1.5;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Detail Cards Grid */
@@ -187,7 +194,16 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
-    margin-bottom: 2.5rem;
+    max-width: 860px;
+    margin: 2.5rem auto 1rem auto;
+    width: 100%;
+}
+
+/* Center Image Section Container */
+#invitation-image-section {
+    width: 100%;
+    max-width: 580px;
+    margin: 0 auto;
 }
 
 .detail-card {
@@ -230,6 +246,47 @@ body {
     font-size: 0.82rem;
     font-weight: 300;
     color: var(--color-text-secondary);
+}
+
+.card-time {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin-top: 1rem;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+}
+
+.card-map-btn {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--color-gold-dark);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+}
+
+.card-map-btn:hover {
+    color: var(--color-text-primary);
+    border-bottom-color: var(--color-text-primary);
+}
+
+.mini-arrow {
+    width: 12px;
+    height: 12px;
+    margin-left: 0.4rem;
+    transition: var(--transition-smooth);
+}
+
+.card-map-btn:hover .mini-arrow {
+    transform: translateX(4px);
 }
 
 /* Google Maps Elegant Link Button */
@@ -383,9 +440,9 @@ body.cover-opened #portrait-frame.revealed {
     height: 120%; /* Expanded height to enable smooth vertical scroll parallax space */
     object-fit: cover;
     object-position: center 20%;
-    opacity: 0.8; /* Warm elegant editorial opacity */
+    opacity: 0.9; /* Richer editorial opacity for better contrast */
     transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1); /* Lag-free scrolling without transform transition interference */
-    filter: sepia(6%) contrast(101%);
+    filter: sepia(4%) contrast(112%); /* Increased contrast for visual excellence */
     will-change: transform; /* Hardware acceleration for buttery smooth scrolling */
 }
 
@@ -611,6 +668,30 @@ body.cover-active #app-container {
     padding: 2rem;
 }
 
+#invitation-cover::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: radial-gradient(circle, rgba(250, 247, 242, 0.15) 30%, rgba(250, 247, 242, 0.75) 100%), 
+                url('background.jpeg') no-repeat center/cover;
+    filter: blur(6px) contrast(130%) brightness(95%);
+    z-index: -1;
+    opacity: 0.95;
+    animation: slowZoom 25s ease-out infinite alternate;
+}
+
+@keyframes slowZoom {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.08);
+    }
+}
+
 #invitation-cover.opened {
     transform: translateY(-100%);
     opacity: 0;
@@ -649,33 +730,7 @@ body.cover-active #app-container {
     z-index: 10;
 }
 
-/* Wreath and Monogram Crest */
-.crest-container {
-    position: relative;
-    width: 180px;
-    height: 180px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2rem;
-}
 
-.wreath-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.monogram-text {
-    font-family: var(--font-serif);
-    font-size: 2.8rem;
-    font-weight: 300;
-    color: var(--color-gold-dark);
-    letter-spacing: 0.05em;
-    margin-top: 4px;
-}
 
 .cover-subtitle {
     font-family: var(--font-sans);
@@ -683,8 +738,17 @@ body.cover-active #app-container {
     font-weight: 600;
     letter-spacing: 0.35em;
     color: var(--color-text-secondary);
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
     text-transform: uppercase;
+}
+
+.cover-tagline {
+    font-family: var(--font-serif);
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--color-gold-dark);
+    margin-bottom: 0.8rem;
 }
 
 .cover-names {
@@ -700,17 +764,8 @@ body.cover-active #app-container {
     width: 50px;
     height: 1px;
     background-color: var(--color-gold);
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem; /* Adjusted to maintain spacing when date is removed */
     opacity: 0.7;
-}
-
-.cover-date {
-    font-family: var(--font-sans);
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    color: var(--color-gold-dark);
-    margin-bottom: 3rem;
 }
 
 /* Premium Reveal Button */
@@ -807,26 +862,15 @@ body.cover-active #app-container {
         max-height: none;
         border: 1px solid var(--color-border);
     }
+
     
-    .crest-container {
-        width: 140px;
-        height: 140px;
-        margin-bottom: 1.5rem;
-    }
-    
-    .monogram-text {
-        font-size: 2.2rem;
-    }
-    
+
     .cover-names {
         font-size: 2rem;
         margin-bottom: 1.2rem;
     }
-    
-    .cover-date {
-        font-size: 0.65rem;
-        margin-bottom: 2rem;
-        line-height: 1.5;
-    }
 }
+
+/* Floating Music Toggle Button */
+
 
