@@ -7,10 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Lock scroll and initialize cover active state
     document.body.classList.add('cover-active');
 
-    // Handle invitation cover opening transition
+    // Cache core elements
     const openBtn = document.getElementById('btn-open-invitation');
     const invitationCover = document.getElementById('invitation-cover');
     const revealItems = document.querySelectorAll('.reveal-item');
+    const bgMusic = document.getElementById('bg-music');
 
     if (openBtn && invitationCover) {
         openBtn.addEventListener('click', () => {
@@ -24,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             // Start background music
-            const bgMusic = document.getElementById('bg-music');
             if (bgMusic) {
                 bgMusic.play().catch((error) => {
                     console.log("Audio play prevented or file not loaded yet: ", error);
@@ -32,6 +32,29 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Handle Page Visibility Change (minimize, tab switch, app backgrounding)
+    document.addEventListener('visibilitychange', () => {
+        if (bgMusic) {
+            if (document.hidden) {
+                bgMusic.pause();
+            } else {
+                // Only resume if the user has already opened the invitation
+                if (document.body.classList.contains('cover-opened')) {
+                    bgMusic.play().catch((error) => {
+                        console.log("Audio resume prevented: ", error);
+                    });
+                }
+            }
+        }
+    });
+
+    // Handle Page Hide / Navigation Away (back button, closing page)
+    window.addEventListener('pagehide', () => {
+        if (bgMusic) {
+            bgMusic.pause();
+        }
+    });
 
     // Set target wedding date: August 30, 2026 at 9:00 AM (09:00)
     const targetDateString = 'August 30, 2026 09:00:00';

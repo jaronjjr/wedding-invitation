@@ -609,26 +609,23 @@ body.cover-opened #portrait-frame.revealed {
     }
 
     #app-container {
-        height: 100%;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        padding: calc(1.5rem + env(safe-area-inset-top)) calc(1.25rem + env(safe-area-inset-right)) calc(1.5rem + env(safe-area-inset-bottom)) calc(1.25rem + env(safe-area-inset-left));
-        border: none;
-        box-shadow: none;
-        background-color: var(--color-bg-primary);
-    }
-
-    #app-container::before {
-        content: '';
         position: fixed;
         top: calc(0.75rem + env(safe-area-inset-top));
         left: calc(0.75rem + env(safe-area-inset-left));
         right: calc(0.75rem + env(safe-area-inset-right));
         bottom: calc(0.75rem + env(safe-area-inset-bottom));
+        width: auto;
+        height: auto;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 1.5rem 1.25rem;
         border: 1px solid var(--color-border);
-        pointer-events: none;
-        z-index: 100;
-        display: block;
+        box-shadow: none;
+        background-color: var(--color-bg-primary);
+    }
+
+    #app-container::before {
+        display: none;
     }
 
     #main-header {
@@ -987,16 +984,21 @@ body.cover-active #app-container {
 /* For mobile styling adjustments of cover frame */
 @media (max-width: 600px) {
     #invitation-cover {
-        padding: 1rem;
+        padding: 0;
     }
 
     .cover-frame {
-        height: 100%;
+        position: absolute;
+        top: calc(0.75rem + env(safe-area-inset-top));
+        left: calc(0.75rem + env(safe-area-inset-left));
+        right: calc(0.75rem + env(safe-area-inset-right));
+        bottom: calc(0.75rem + env(safe-area-inset-bottom));
+        width: auto;
+        height: auto;
         max-height: none;
+        max-width: none;
         border: 1px solid var(--color-border);
     }
-
-
 
     .cover-names {
         font-size: 2rem;
