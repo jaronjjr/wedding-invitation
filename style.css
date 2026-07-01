@@ -141,7 +141,7 @@ body::before {
     align-items: center;
     gap: 1.25rem;
     flex-grow: 1;
-    margin: 2rem 0;
+    margin: 2rem 0 0.5rem 0;
 }
 
 /* Content Left Side Block */
@@ -206,7 +206,7 @@ body::before {
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
     max-width: 860px;
-    margin: 2.5rem auto 1rem auto;
+    margin: 0.75rem auto 1rem auto;
     width: 100%;
 }
 
@@ -380,6 +380,55 @@ body::before {
 
 .card-map-btn:hover .mini-arrow {
     transform: translateX(4px);
+}
+
+.full-width-card {
+    grid-column: 1 / -1;
+}
+
+#note-container {
+    max-width: 860px;
+    margin: 2.5rem auto 1rem auto;
+    width: 100%;
+}
+
+.card-note-content {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-top: 1.5rem;
+    text-align: center;
+    max-width: 720px;
+}
+
+.card-note-content p {
+    margin-bottom: 1.25rem;
+}
+
+.card-note-content p:last-child {
+    margin-bottom: 0;
+}
+
+.card-note-content .can-wait {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin-top: 1.5rem;
+}
+
+.card-note-content .sign-off {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--color-text-primary);
+    margin-top: 2rem;
+    line-height: 1.4;
+}
+
+.card-note-content .sign-off strong {
+    font-weight: 500;
+    color: #140201;
+    font-size: 1.3rem;
 }
 
 /* Google Maps Elegant Link Button */
